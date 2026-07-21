@@ -60,13 +60,19 @@ function Home() {
                 <img src={product.image} alt={product.name} />
               </div>
               <div className="bike-card-body">
-                <div className="bike-brand">{product.brand}</div>
+                <div className="bike-brand">
+                  <span style={{ 
+                    color: product.inStock !== false ? '#28a745' : '#dc3545',
+                  }}>
+                    {product.inStock !== false ? 'IN STOCK' : 'OUT OF STOCK'}
+                  </span>
+                </div>
                 <p className="bike-desc">{product.name}</p>
                 <div className="bike-price-rating">
                   <span className="bike-price">{product.price}</span>
                 </div>
                 <div className="bike-actions">
-                  <button className="btn-buy">BUY NOW</button>
+                  <button className="btn-buy">ADD TO CART</button>
                   <button className="btn-details">DETAILS</button>
                 </div>
               </div>
