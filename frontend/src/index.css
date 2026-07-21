@@ -111,6 +111,7 @@ h2 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: black;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
@@ -128,7 +129,7 @@ h2 {
 
 .marquee-item {
   flex-shrink: 0;
-  padding-right: 25vw;
+  padding-right: 5vw;
 }
 
 @keyframes marquee {

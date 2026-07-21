@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import './index.css';
@@ -9,8 +9,22 @@ function App() {
   const [apiMessage, setApiMessage] = useState('Loading...');
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
+  const dropdownRef = useRef(null);
 
   const categories = ['All Categories', 'Exhausts', 'Helmets', 'Tires', 'Accessories'];
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsCategoryOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     // Fetch data from our Node.js backend
@@ -75,7 +89,7 @@ function App() {
 
             <div className="header-actions">
               <div className="search-container">
-                <div className="custom-dropdown">
+                <div className="custom-dropdown" ref={dropdownRef}>
                   <div 
                     className="dropdown-selected" 
                     onClick={() => setIsCategoryOpen(!isCategoryOpen)}
@@ -88,11 +102,7 @@ function App() {
                   
                   {isCategoryOpen && (
                     <>
-                      <div 
-                        className="dropdown-overlay" 
-                        style={{ position: 'fixed', inset: 0, zIndex: 100 }} 
-                        onClick={() => setIsCategoryOpen(false)}
-                      />
+
                       <ul className="dropdown-options" style={{ zIndex: 101 }}>
                         {categories.map((cat) => (
                           <li 
