@@ -552,6 +552,58 @@ h2 {
   transform: translateY(-2px);
 }
 
+/* --- Image Marquee Gallery --- */
+.image-marquee-section {
+  padding: 4rem 0;
+  background-color: var(--bg-color);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.image-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: imageMarquee 60s linear infinite;
+}
+
+.image-marquee-track.reverse {
+  animation: imageMarqueeReverse 60s linear infinite;
+}
+
+.image-marquee-item {
+  flex: 0 0 auto;
+  margin: 0 10px;
+  width: 180px;
+  height: 120px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-marquee-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+@keyframes imageMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes imageMarqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
 /* --- Sections Common --- */
 section {
   padding: 6rem 5%;

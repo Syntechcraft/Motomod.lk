@@ -9,6 +9,33 @@ function Home() {
 
   const words = ['EXPERIENCE', 'PERFORMANCE', 'LIFESTYLE', 'AESTHETICS'];
 
+  const marqueeImages1 = [
+    '/Suzuki-Symbol.png',
+    '/WhatsApp Image 2026-07-21 at 3.39.40 PM (1).jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.40 PM (2).jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.40 PM.jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.41 PM (1).jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.42 PM (1).jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.42 PM.jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.43 PM (1).jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.43 PM.jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.44 PM (1).jpeg'
+  ];
+
+  const marqueeImages2 = [
+    '/tvs-logo-tvs-icon-transparent-free-png.webp',
+    '/WhatsApp Image 2026-07-21 at 3.39.44 PM.jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.45 PM (1).jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.45 PM.jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.46 PM (1).jpeg',
+    '/WhatsApp Image 2026-07-21 at 3.39.46 PM.jpeg',
+    '/WhatsApp Image 2026-07-21 at 8.55.07 PM (1).jpeg',
+    '/WhatsApp Image 2026-07-21 at 8.55.07 PM.jpeg',
+    '/WhatsApp Image 2026-07-21 at 8.55.08 PM.jpeg',
+    '/WhatsApp Image 2026-07-21 at 8.55.09 PM (1).jpeg',
+    '/WhatsApp Image 2026-07-21 at 8.55.09 PM.jpeg'
+  ];
+
   useEffect(() => {
     let timer = setTimeout(() => {
       handleTyping();
@@ -48,6 +75,24 @@ function Home() {
           </div>
         </div>
       </header>
+
+      {/* Image Marquee Gallery Section */}
+      <section className="image-marquee-section">
+        <div className="image-marquee-track">
+          {[...marqueeImages1, ...marqueeImages1].map((src, index) => (
+            <div className="image-marquee-item" key={`row1-${index}`}>
+              <img src={src} alt="Gallery item" loading="lazy" />
+            </div>
+          ))}
+        </div>
+        <div className="image-marquee-track reverse">
+          {[...marqueeImages2, ...marqueeImages2].map((src, index) => (
+            <div className="image-marquee-item" key={`row2-${index}`}>
+              <img src={src} alt="Gallery item" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Bike Modification Items Section */}
       <section className="bike-items-section" id="bike-items">
