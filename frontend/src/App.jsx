@@ -1,17 +1,24 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './index.css';
 import Home from './pages/Home';
 import About from './pages/About';
+import Shop from './pages/Shop';
 
 function App() {
   const [apiMessage, setApiMessage] = useState('Loading...');
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const categories = ['All Categories', 'Exhausts', 'Helmets', 'Tires', 'Accessories'];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -43,7 +50,6 @@ function App() {
   }, []);
 
   return (
-    <Router>
       <div className="app-container">
         {/* Navbar */}
         <div className="top-strip">
@@ -81,9 +87,9 @@ function App() {
             </Link>
 
             <ul className="nav-links">
-              <li><Link to="/" className="active">Home</Link></li>
-              <li><a href="/#bike-items">Shop</a></li>
-              <li><Link to="/about">About Us</Link></li>
+              <li><NavLink to="/" end>Home</NavLink></li>
+              <li><NavLink to="/shop">Shop</NavLink></li>
+              <li><NavLink to="/about">About Us</NavLink></li>
               <li><a href="#contact">Contacts</a></li>
             </ul>
 
@@ -111,6 +117,7 @@ function App() {
                             onClick={() => {
                               setSelectedCategory(cat);
                               setIsCategoryOpen(false);
+                              navigate(`/shop?category=${encodeURIComponent(cat === 'All Categories' ? 'All' : cat)}`);
                             }}
                           >
                             {cat}
@@ -143,6 +150,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/shop" element={<Shop />} />
         </Routes>
 
         {/* Footer */}
@@ -165,7 +173,7 @@ function App() {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About Us</Link></li>
-              <li><a href="/#bike-items">Shop</a></li>
+              <li><Link to="/shop">Shop</Link></li>
               <li><a href="#contact">Contact Us</a></li>
             </ul>
           </div>
@@ -188,7 +196,6 @@ function App() {
           </div>
         </footer>
       </div>
-    </Router>
   );
 }
 
