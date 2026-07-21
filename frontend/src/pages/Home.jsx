@@ -36,8 +36,11 @@ function Home() {
       {/* Hero Section */}
       <header className="hero" id="home">
         <div className="hero-content centered-hero">
-          <div className="hero-subtitle">UPGRADING THE <span style={{ color: 'var(--primary-color)' }}>{currentWord}</span><span style={{ borderRight: '2px solid var(--primary-color)', animation: 'blink 1s step-end infinite' }}>&nbsp;</span></div>
-          <h1 className="modern-title">Welcome to <span className="text-highlight">Motomod.</span></h1>
+          <div className="hero-subtitle">ELEVATING YOUR <span style={{ color: 'var(--primary-color)' }}>{currentWord}</span><span style={{ borderRight: '2px solid var(--primary-color)', animation: 'blink 1s step-end infinite' }}>&nbsp;</span></div>
+          <h1 className="modern-title">
+            <span className="welcome-text">Welcome to </span>
+            <span className="text-highlight">Motomod.</span>
+          </h1>
           <p className="hero-desc">Your ultimate hub for next-gen auto components. Push the limits of performance and redefine your vehicle's aesthetics.</p>
           <div className="hero-action-buttons">
             <a href="/#bike-items" className="btn btn-primary">VIEW ALL PRODUCTS</a>
