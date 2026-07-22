@@ -198,12 +198,14 @@ h2 {
   font-weight: 600;
   font-size: 0.95rem;
   transition: all 0.3s ease;
-  border-radius: 20px;
+  border-radius: 6px;
+  border: 1px solid transparent;
 }
 
 .nav-links li a:hover,
 .nav-links li a.active {
-  background-color: rgba(227, 82, 5, 0.1);
+  background-color: rgba(227, 82, 5, 0.05);
+  border: 1px solid var(--primary-color);
   color: var(--primary-color);
 }
 

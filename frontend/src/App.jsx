@@ -88,9 +88,9 @@ function App() {
 
             <ul className="nav-links">
               <li><NavLink to="/" end>Home</NavLink></li>
+              <li><NavLink to="/about">About</NavLink></li>
               <li><NavLink to="/shop">Shop</NavLink></li>
-              <li><NavLink to="/about">About Us</NavLink></li>
-              <li><a href="#contact">Contacts</a></li>
+              <li><NavLink to="/track-order">Track Order</NavLink></li>
             </ul>
 
             <div className="header-actions">
