@@ -3,11 +3,11 @@
 :root {
   --primary-color: #e35205;
   --primary-dark: #b84102;
-  --bg-color: #BCDEEE;
-  --card-bg: #BCDEEE;
-  --light-gray: #f5f5f5;
+  --bg-color: #ffffff;
+  --card-bg: #ffffff;
+  --light-gray: #ffffff;
   --text-dark: #333333;
-  --text-light: #BCDEEE;
+  --text-light: #ffffff;
   --text-muted: #666666;
   --border-color: #eaeaea;
 }
@@ -78,7 +78,8 @@ h2 {
   letter-spacing: 0.5px;
 }
 
-.top-strip-left, .top-strip-right {
+.top-strip-left,
+.top-strip-right {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -133,8 +134,13 @@ h2 {
 }
 
 @keyframes marquee {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-100%, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-100%, 0);
+  }
 }
 
 .site-header {
@@ -168,7 +174,8 @@ h2 {
   height: 75px;
   max-width: 100%;
   object-fit: contain;
-  mix-blend-mode: screen; /* Removes the black background of the logo */
+  mix-blend-mode: screen;
+  /* Removes the black background of the logo */
 }
 
 /* Nav Links */
@@ -273,8 +280,15 @@ h2 {
 }
 
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dropdown-options li {
@@ -542,9 +556,17 @@ h2 {
 }
 
 @keyframes shimmer {
-  0% { transform: skewX(-25deg) translateX(-150%); }
-  40% { transform: skewX(-25deg) translateX(250%); }
-  100% { transform: skewX(-25deg) translateX(250%); }
+  0% {
+    transform: skewX(-25deg) translateX(-150%);
+  }
+
+  40% {
+    transform: skewX(-25deg) translateX(250%);
+  }
+
+  100% {
+    transform: skewX(-25deg) translateX(250%);
+  }
 }
 
 .btn-primary:hover {
@@ -555,7 +577,7 @@ h2 {
 /* --- Image Marquee Gallery --- */
 .image-marquee-section {
   padding: 4rem 0;
-  background-color: var(--bg-color);
+  background-color: #ffffff;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -578,11 +600,8 @@ h2 {
   margin: 0 10px;
   width: 180px;
   height: 120px;
-  border-radius: 10px;
   overflow: hidden;
-  background-color: #fff;
-  padding: 1rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -595,13 +614,23 @@ h2 {
 }
 
 @keyframes imageMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes imageMarqueeReverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* --- Sections Common --- */
@@ -616,127 +645,188 @@ section {
 
 .bike-product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .bike-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
+  background: radial-gradient(circle at top center, #ffffff 0%, #f0f2f5 100%);
+  border: none;
+  border-radius: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  overflow: visible;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.02),
+    0 10px 15px rgba(0, 0, 0, 0.03),
+    0 24px 35px rgba(0, 0, 0, 0.04);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-.bike-card:hover {
-  border-color: var(--primary-color);
-  box-shadow: 0 5px 20px rgba(242, 124, 8, 0.15);
-}
 
 .bike-image-wrapper {
+  background: transparent;
+  aspect-ratio: 1 / 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
-  margin-bottom: 1.5rem;
-  background-color: #BCDEEE;
-  border-radius: 8px;
-  padding: 1rem;
+  margin-bottom: 0;
+  padding: 0.5rem;
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
 }
 
 .bike-image-wrapper img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  mix-blend-mode: multiply;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15));
+}
+
+.bike-card:hover .bike-image-wrapper img {
+  opacity: 1;
 }
 
 .bike-card-body {
+  padding: 0.8rem 1.2rem;
   text-align: left;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  background: transparent;
+  border-radius: 0;
   position: relative;
-}
-
-.bike-brand {
-  color: var(--primary-color);
-  font-weight: 600;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  margin-bottom: 0.3rem;
+  z-index: 2;
 }
 
 .bike-desc {
-  font-size: 1rem;
-  color: var(--text-dark);
+  font-size: 1.25rem;
+  color: #0f172a;
   font-weight: 600;
-  margin-bottom: 1rem;
-  flex-grow: 1;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+  text-align: left;
+  letter-spacing: -0.3px;
+  transition: color 0.3s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bike-card:hover .bike-desc {
+  color: var(--primary-color);
+}
+
+.bike-brand {
+  position: static;
+  margin-bottom: 0.8rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.bike-brand span {
+  background: #f1f5f9;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.bike-brand span::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: currentColor;
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: stockPulse 2s infinite;
+}
+
+@keyframes stockPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+.bike-price-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  padding-top: 1rem;
 }
 
 .bike-price-rating {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.bike-original-price {
+  position: absolute;
+  top: -18px;
+  text-decoration: line-through;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .bike-price {
-  font-weight: 800;
-  color: var(--primary-color);
-  font-size: 1.3rem;
-}
-
-.bike-rating {
-  color: #fbc02d;
-  font-size: 0.9rem;
-  margin-top: 0.2rem;
-}
-
-.bike-actions {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-}
-
-.btn-buy,
-.btn-details {
-  border: none;
-  padding: 0.6rem 0.5rem;
   font-weight: 700;
-  font-size: 0.75rem;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  flex: 1;
-  min-width: 100px;
-  border-radius: 5px;
-  text-align: center;
+  color: #0f172a;
+  font-size: 1.3rem;
+  letter-spacing: -0.5px;
 }
 
-.btn-buy {
-  background-color: var(--primary-color);
-  color: #BCDEEE;
-}
-
-.btn-buy:hover {
-  opacity: 0.9;
-}
-
-.btn-details {
-  background-color: #333;
-  color: #BCDEEE;
-  border: 1px solid #222;
-}
-
-.btn-details:hover {
+.btn-cart-icon {
   background-color: #111;
+  color: #ffffff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cart-icon:hover {
+  background-color: var(--primary-color);
+}
+
+.btn-cart-icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* --- About Us --- */
@@ -925,7 +1015,7 @@ section {
 /* --- Shop Page Redesign Styles --- */
 
 .shop-page-wrapper {
-  background-color: #F5F5F5;
+  background-color: #ffffff;
 }
 
 .shop-hero {
@@ -982,7 +1072,7 @@ section {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
   z-index: 1;
 }
 
@@ -1183,7 +1273,7 @@ section {
   background: #fff;
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   height: fit-content;
   color: #333;
   position: sticky;
@@ -1351,22 +1441,16 @@ section {
 }
 
 .shop-filtered-grid {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 @media (max-width: 1200px) {
-  .shop-filtered-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
   .shop-filtered-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .shop-filtered-grid {
     grid-template-columns: 1fr;
   }

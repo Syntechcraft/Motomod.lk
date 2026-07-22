@@ -53,15 +53,6 @@ export const products = [
     inStock: true
   },
   {
-    id: 6,
-    name: "X-Spirit III Aerodynamic Helmet",
-    brand: "Shoei",
-    price: "Rs. 145,000",
-    image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=400&q=80",
-    category: "Helmets",
-    inStock: false
-  },
-  {
     id: 7,
     name: "Racetec RR Slick Rear Tire",
     brand: "Metzeler",

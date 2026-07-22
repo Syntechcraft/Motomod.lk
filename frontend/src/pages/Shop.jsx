@@ -82,9 +82,15 @@ function Shop() {
 
     return catMatch && priceMatch && stockMatch;
   }).sort((a, b) => {
+    const aInStock = a.inStock !== false;
+    const bInStock = b.inStock !== false;
+    
+    if (aInStock && !bInStock) return -1;
+    if (!aInStock && bInStock) return 1;
+
     if (sortOption === 'price-low') return parsePrice(a.price) - parsePrice(b.price);
     if (sortOption === 'price-high') return parsePrice(b.price) - parsePrice(a.price);
-    return 0; // Default relevant
+    return 0;
   });
 
   return (
@@ -229,25 +235,30 @@ function Shop() {
                   <img src={product.image} alt={product.name} />
                 </div>
                 <div className="bike-card-body">
+                  <p className="bike-desc">{product.name}</p>
                   <div className="bike-brand">
                     <span style={{ 
-                      color: product.inStock !== false ? '#28a745' : '#dc3545',
+                      color: product.inStock !== false ? '#00b894' : '#d63031',
                     }}>
-                      {product.inStock !== false ? 'IN STOCK' : 'OUT OF STOCK'}
+                      {product.inStock !== false ? '✓ IN STOCK' : '✗ OUT OF STOCK'}
                     </span>
                   </div>
-                  <p className="bike-desc">{product.name}</p>
-                  <div className="bike-price-rating">
-                    <span className="bike-price">{product.price}</span>
-                    {product.originalPrice && (
-                      <span style={{ textDecoration: 'line-through', color: '#888', marginLeft: '10px', fontSize: '0.85rem' }}>
-                        {product.originalPrice}
-                      </span>
-                    )}
-                  </div>
-                  <div className="bike-actions">
-                    <button className="btn-buy">ADD TO CART</button>
-                    <button className="btn-details">DETAILS</button>
+                  <div className="bike-price-action-row">
+                    <div className="bike-price-rating">
+                      {product.originalPrice && (
+                        <span className="bike-original-price">
+                          {product.originalPrice}
+                        </span>
+                      )}
+                      <span className="bike-price">{product.price}</span>
+                    </div>
+                    <button className="btn-cart-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                      </svg>
+                    </button>
                   </div>
                 </div>
 

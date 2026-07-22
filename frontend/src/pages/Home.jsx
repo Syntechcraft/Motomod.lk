@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { products } from '../data/products';
+
 
 function Home() {
   const [currentWord, setCurrentWord] = useState('');
@@ -78,53 +78,16 @@ function Home() {
 
       {/* Image Marquee Gallery Section */}
       <section className="image-marquee-section">
-        <div className="image-marquee-track">
-          {[...marqueeImages1, ...marqueeImages1].map((src, index) => (
-            <div className="image-marquee-item" key={`row1-${index}`}>
-              <img src={src} alt="Gallery item" loading="lazy" />
-            </div>
-          ))}
-        </div>
         <div className="image-marquee-track reverse">
-          {[...marqueeImages2, ...marqueeImages2].map((src, index) => (
-            <div className="image-marquee-item" key={`row2-${index}`}>
+          {[...marqueeImages1, ...marqueeImages2, ...marqueeImages1, ...marqueeImages2].map((src, index) => (
+            <div className="image-marquee-item" key={`row-${index}`}>
               <img src={src} alt="Gallery item" loading="lazy" />
             </div>
           ))}
         </div>
       </section>
 
-      {/* Bike Modification Items Section */}
-      <section className="bike-items-section" id="bike-items">
-        <h2 style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--text-dark)', fontWeight: '800' }}>Fresh Arrivals For Your Ride</h2>
 
-        <div className="bike-product-grid">
-          {products.slice(0, 4).map((product) => (
-            <div className="bike-card" key={product.id}>
-              <div className="bike-image-wrapper">
-                <img src={product.image} alt={product.name} />
-              </div>
-              <div className="bike-card-body">
-                <div className="bike-brand">
-                  <span style={{ 
-                    color: product.inStock !== false ? '#28a745' : '#dc3545',
-                  }}>
-                    {product.inStock !== false ? 'IN STOCK' : 'OUT OF STOCK'}
-                  </span>
-                </div>
-                <p className="bike-desc">{product.name}</p>
-                <div className="bike-price-rating">
-                  <span className="bike-price">{product.price}</span>
-                </div>
-                <div className="bike-actions">
-                  <button className="btn-buy">ADD TO CART</button>
-                  <button className="btn-details">DETAILS</button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
     </>
   );
 }
