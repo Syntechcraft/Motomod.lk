@@ -102,38 +102,6 @@ function Shop() {
         </div>
       </section>
 
-      {/* Promo Grid Section */}
-      <section className="shop-promo-grid">
-        <div className="shop-promo-card" style={{ cursor: 'default' }}>
-          <div className="shop-promo-content">
-            <div className="shop-promo-label">Motomod</div>
-            <div className="shop-promo-title">FAST DELIVERY</div>
-            <div className="shop-promo-desc">
-              Get your gear fast with our reliable, island-wide delivery service straight to your doorstep.
-            </div>
-          </div>
-        </div>
-        
-        <div className="shop-promo-card" style={{ cursor: 'default' }}>
-          <div className="shop-promo-content">
-            <div className="shop-promo-label">Motomod</div>
-            <div className="shop-promo-title">PREMIUM QUALITY</div>
-            <div className="shop-promo-desc">
-              We guarantee 100% authentic, top-tier motorcycle parts and accessories for your ride.
-            </div>
-          </div>
-        </div>
-
-        <div className="shop-promo-card" style={{ cursor: 'default' }}>
-          <div className="shop-promo-content">
-            <div className="shop-promo-label">Motomod</div>
-            <div className="shop-promo-title">EXPERT SUPPORT</div>
-            <div className="shop-promo-desc">
-              Need help? Our technical team provides expert guidance and 24/7 customer support.
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Main Content Container */}
       <div className="shop-container">
