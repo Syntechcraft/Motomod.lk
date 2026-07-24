@@ -191,22 +191,39 @@ h2 {
 }
 
 .nav-links li a {
+  position: relative;
   display: block;
   padding: 0.6rem 1.2rem;
   color: #BADBF6;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   border-radius: 6px;
   border: 1px solid transparent;
 }
 
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: calc(100% - 2.4rem);
+  height: 2px;
+  bottom: 0.3rem;
+  left: 50%;
+  background-color: var(--primary-color);
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-out;
+}
+
 .nav-links li a:hover,
 .nav-links li a.active {
-  background-color: rgba(227, 82, 5, 0.05);
-  border: 1px solid var(--primary-color);
   color: var(--primary-color);
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 /* Header Actions */
@@ -574,6 +591,14 @@ h2 {
 .btn-primary:hover {
   background-color: var(--primary-dark);
   transform: translateY(-2px);
+}
+
+.btn-black {
+  background-color: #000 !important;
+}
+
+.btn-black:hover {
+  background-color: var(--primary-color) !important;
 }
 
 /* --- Image Marquee Gallery --- */
@@ -1028,6 +1053,10 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.shop-hero.about-hero {
+  background: url('/view-cool-powerful-motorcycle.jpg') center/cover no-repeat;
 }
 
 .shop-hero::before {
@@ -1892,7 +1921,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8rem 5%;
+  padding: 4rem 5%;
   gap: 4rem;
   background-color: var(--bg-color);
   overflow: hidden;
@@ -1941,29 +1970,20 @@ section {
   aspect-ratio: 1/1;
   border: 12px solid #ffffff;
   object-fit: cover;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 }
 
 .about-badge {
   position: absolute;
-  bottom: 0;
+  bottom: -2rem;
   left: -15%;
-  background-color: #000000;
-  color: #ffffff;
-  padding: 1.5rem 2rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.about-badge::before {
-  content: '';
-  display: block;
-  width: 3px;
-  height: 40px;
-  background-color: var(--primary-color);
+  background: #000;
+  color: #fff;
+  padding: 1.5rem 2.5rem;
+  font-weight: 900;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--primary-color);
 }
 
 .about-company-right {
@@ -2068,15 +2088,207 @@ section {
     padding: 4rem 5%;
     gap: 6rem;
   }
-  .about-company-left, .about-company-right {
+
+  .about-company-left,
+  .about-company-right {
     padding: 0;
     width: 100%;
   }
+
   .about-sub-img {
     right: -5%;
     width: 50%;
   }
+
   .about-badge {
     left: -5%;
+  }
+}
+
+/* --- Pagination Styles --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.pagination button {
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+/* Number buttons */
+.pagination button.pagination-page {
+  background: rgba(227, 82, 5, 0.08);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.pagination button.pagination-page:hover:not(.active) {
+  background: rgba(227, 82, 5, 0.15);
+}
+
+/* Active number button */
+.pagination button.pagination-page.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Prev/Next buttons */
+.pagination button.pagination-nav {
+  background: #111111;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pagination button.pagination-nav:hover:not(:disabled) {
+  background: #222222;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.pagination button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* --- Track Order Page --- */
+.track-order-page {
+  background-color: var(--bg-color);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 5% 4rem;
+}
+
+.track-order-container {
+  width: 100%;
+  max-width: 650px;
+}
+
+.track-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.track-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.track-title-pipe {
+  color: var(--primary-color);
+}
+
+.track-subtitle {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-family: "Georgia", serif;
+}
+
+.track-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.track-input-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.track-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.track-input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.track-input-group input {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 1rem 1.2rem;
+  color: #000000;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.track-input-group input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  background: rgba(227, 82, 5, 0.03);
+}
+
+.track-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.btn-hover-black:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+.track-footer {
+  text-align: center;
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+.track-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+.track-footer p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .track-input-row {
+    flex-direction: column;
+  }
+  .track-order-container {
+    padding: 2.5rem 1.5rem;
   }
 }

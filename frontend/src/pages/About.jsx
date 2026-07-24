@@ -5,7 +5,7 @@ function About() {
   return (
     <div className="shop-page-wrapper">
       {/* Hero Banner Section */}
-      <section className="shop-hero">
+      <section className="shop-hero about-hero">
         <div className="shop-hero-content centered-hero">
           <div className="hero-subtitle">MOTOMOD <span style={{ color: 'var(--primary-color)' }}>ABOUT</span></div>
           <h1 className="modern-title">
@@ -31,7 +31,9 @@ function About() {
         </div>
 
         <div className="about-company-right">
-          <h2 className="about-company-title">Island's largest & trusted vehicle mod co.</h2>
+          <h2 className="about-company-title" style={{ color: '#000', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '-0.5px', lineHeight: '1.2' }}>
+            Island's largest & trusted <span style={{ color: 'var(--primary-color)' }}>vehicle mod co.</span>
+          </h2>
           <p className="about-company-desc">
             We are passionate about bringing you the best vehicle modifications and premium accessories. With years of experience and a commitment to quality, we transform your ride into a masterpiece. Our team ensures every part meets the highest standards.
           </p>
@@ -58,7 +60,7 @@ function About() {
             </div>
           </div>
 
-          <Link to="/shop" className="btn-discover">DISCOVER MORE</Link>
+          <Link to="/shop" className="btn btn-primary btn-black">DISCOVER MORE</Link>
         </div>
       </section>
 
@@ -92,6 +94,18 @@ function About() {
               Need help? Our technical team provides expert guidance and 24/7 customer support.
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Brands We Trust Section */}
+      <section className="about-brands-section" style={{ padding: '2rem 5%', backgroundColor: 'var(--card-bg)', textAlign: 'center' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: '2.5rem', color: '#000', marginBottom: '1.5rem', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '-0.5px', lineHeight: '1.2' }}>
+            Premium Brands <span style={{ color: 'var(--primary-color)' }}>We Trust</span>
+          </h2>
+          <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
+            As a premier retailer of motorcycle parts and accessories, we are proud to offer an extensive selection of products from all industry-leading global brands. We specialize in selling 100% genuine items, ranging from top motorcycle manufacturers' OEM components to high-performance aftermarket upgrades. When you shop with us, you are guaranteed authentic products from the world's most trusted brands, ensuring your ride gets the quality, durability, and performance it deserves.
+          </p>
         </div>
       </section>
 

@@ -5,6 +5,7 @@ import './index.css';
 import Home from './pages/Home';
 import About from './pages/About';
 import Shop from './pages/Shop';
+import TrackOrder from './pages/TrackOrder';
 
 function App() {
   const [apiMessage, setApiMessage] = useState('Loading...');
@@ -151,6 +152,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/track-order" element={<TrackOrder />} />
         </Routes>
 
         {/* Footer */}
@@ -181,7 +183,7 @@ function App() {
           <div>
             <h4>Support</h4>
             <ul>
-              <li><a href="#">Track Order</a></li>
+              <li><Link to="/track-order">Track Order</Link></li>
               <li><a href="#">Returns & Exchanges</a></li>
               <li><a href="#">Shipping Info</a></li>
               <li><a href="#">FAQ</a></li>

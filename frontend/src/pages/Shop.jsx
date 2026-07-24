@@ -14,6 +14,8 @@ function Shop() {
   const [outOfStockOnly, setOutOfStockOnly] = useState(false);
   const [sortOption, setSortOption] = useState('relevant');
   const [isSortOpen, setIsSortOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
   const sortRef = useRef(null);
 
   const sortOptions = [
@@ -31,6 +33,10 @@ function Shop() {
       setSelectedCategories([]);
     }
   }, [categoryParam]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategories, priceRange, inStockOnly, outOfStockOnly, sortOption]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -92,6 +98,12 @@ function Shop() {
     if (sortOption === 'price-high') return parsePrice(b.price) - parsePrice(a.price);
     return 0;
   });
+
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const currentProducts = filteredProducts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <div className="shop-page-wrapper">
@@ -229,7 +241,7 @@ function Shop() {
           </div>
           
           <div className="bike-product-grid shop-filtered-grid">
-            {filteredProducts.map((product) => (
+            {currentProducts.map((product) => (
               <div className="bike-card" key={product.id}>
                 <div className="bike-image-wrapper">
                   <img src={product.image} alt={product.name} />
@@ -266,6 +278,43 @@ function Shop() {
             ))}
           </div>
           
+          {totalPages > 1 && (
+            <div className="pagination">
+              <button 
+                className="pagination-nav"
+                disabled={currentPage === 1} 
+                onClick={() => {
+                  setCurrentPage(prev => Math.max(prev - 1, 1));
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                Prev
+              </button>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                <button 
+                  key={page} 
+                  className={`pagination-page ${currentPage === page ? 'active' : ''}`}
+                  onClick={() => {
+                    setCurrentPage(page);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                >
+                  {page}
+                </button>
+              ))}
+              <button 
+                className="pagination-nav"
+                disabled={currentPage === totalPages} 
+                onClick={() => {
+                  setCurrentPage(prev => Math.min(prev + 1, totalPages));
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                Next
+              </button>
+            </div>
+          )}
+
           {filteredProducts.length === 0 && (
             <div style={{ textAlign: 'center', color: '#888', padding: '3rem', fontSize: '1.2rem', fontWeight: 'bold' }}>
               No products match your filters.
