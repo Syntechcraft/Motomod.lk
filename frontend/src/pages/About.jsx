@@ -18,7 +18,7 @@ function About() {
 
 
       {/* About Company Section */}
-      <section className="about-company-section">
+      <section className="about-company-section" style={{ padding: '5rem 5%' }}>
         <div className="about-company-left">
           <div className="about-vertical-text">MOTOMOD</div>
           <div className="about-images-wrapper">
@@ -31,7 +31,7 @@ function About() {
         </div>
 
         <div className="about-company-right">
-          <h2 className="about-company-title" style={{ color: '#000', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '-0.5px', lineHeight: '1.2' }}>
+          <h2 className="about-company-title" style={{ fontSize: '2.5rem', color: '#000', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '-0.5px', lineHeight: '1.2' }}>
             Island's largest & trusted <span style={{ color: 'var(--primary-color)' }}>vehicle mod co.</span>
           </h2>
           <p className="about-company-desc">
@@ -65,7 +65,7 @@ function About() {
       </section>
 
       {/* Promo Grid Section */}
-      <section className="shop-promo-grid">
+      <section className="shop-promo-grid" style={{ margin: '5rem auto 4rem auto' }}>
         <div className="shop-promo-card" style={{ cursor: 'default' }}>
           <div className="shop-promo-content">
             <div className="shop-promo-label">MOTOMOD</div>
@@ -98,7 +98,7 @@ function About() {
       </section>
 
       {/* Brands We Trust Section */}
-      <section className="about-brands-section" style={{ padding: '2rem 5%', backgroundColor: 'var(--card-bg)', textAlign: 'center' }}>
+      <section className="about-brands-section" style={{ padding: '3rem 5%', backgroundColor: 'var(--card-bg)', textAlign: 'center' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '2.5rem', color: '#000', marginBottom: '1.5rem', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '-0.5px', lineHeight: '1.2' }}>
             Premium Brands <span style={{ color: 'var(--primary-color)' }}>We Trust</span>

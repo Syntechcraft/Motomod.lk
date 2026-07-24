@@ -1059,6 +1059,10 @@ section {
   background: url('/view-cool-powerful-motorcycle.jpg') center/cover no-repeat;
 }
 
+.shop-hero.track-hero {
+  background: url('/modern_orange_motorbike.png') center/cover no-repeat;
+}
+
 .shop-hero::before {
   content: '';
   position: absolute;
